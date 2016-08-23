@@ -1,0 +1,11 @@
+<h1> Emilimirslist of Animals </h1>
+
+<p>Disclaimer: Emilia and Amir do not condone the sale of animals. Please do not use our site for anything other than their admiration. If you do, we take no responsibility. None. Seriously. </p>
+
+<h2> Categories </h2>
+<ul>
+  <% @categories.each do |category| %>
+    <li><%= link_to category.name, category_path(category) %></li>
+  <% end %>
+</ul>
+<%= link_to "Add Category", new_category_path%>

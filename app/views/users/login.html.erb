@@ -1,0 +1,33 @@
+<div class="form">
+  <!-- <%= render 'form' %> -->
+  <%= form_for @user, url: { :action => 'loggedin' }, html: {class: "form", id: "login_form"}  do |f| %>
+
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        this user from being saved:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :password %>
+      <%= f.password_field :password%>
+    </p>
+    <%= f.submit "Login" %>
+
+  <%end%>
+
+</div>

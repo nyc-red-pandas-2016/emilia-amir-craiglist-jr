@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Emilimirslist</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav>
+
+      <h1><%= link_to 'Animals and pens list, jr.', root_path%></h1>
+      <ul>
+        <% if current_user %>
+        <li><%= link_to 'Logout', '/users/logout' %></li>
+        <li><%= link_to User.find(current_user).name, user_path(User.find(current_user).name) %></li>
+          <% else %>
+        <li><%= link_to 'Login', '/users/login' %></li>
+        <li><%= link_to 'Register', new_user_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+
+    <%= yield %>
+  </body>
+</html>

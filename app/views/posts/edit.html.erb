@@ -1,0 +1,16 @@
+<div class="form">
+  <%= form_for([@category, @post]) do |f| %>
+    <%= f.hidden_field(:user_id, value: current_user) %>
+    <p>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <%end%>
+</div>

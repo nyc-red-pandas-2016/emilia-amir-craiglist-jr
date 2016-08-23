@@ -1,0 +1,10 @@
+<h1> <%= @category.name %> </h1>
+
+<h2> Posts </h2>
+<ul>
+  <% @category.posts.each do |post| %>
+    <li><%= link_to post.title, category_post_path(@category, post) %></li>
+  <%end%>
+</ul>
+<%= link_to "Add Post", new_category_post_path(@category) %> <br>
+<%= link_to 'Back', root_path %>
